@@ -1,24 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O93-pB-Own">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BezierPathCircle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjA-qO-bs7" userLabel="backView">
+                                <rect key="frame" x="140" y="367" width="110" height="110"/>
+                                <viewLayoutGuide key="safeArea" id="PEs-Q5-zI3"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="V6W-sz-eZw"/>
+                                    <constraint firstAttribute="width" secondItem="MjA-qO-bs7" secondAttribute="height" multiplier="1:1" id="YBt-4j-9de"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drD-Dy-CTw">
+                                <rect key="frame" x="145" y="372" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.84313725490000002" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Id8-fT-iJL"/>
+                                    <constraint firstAttribute="width" secondItem="drD-Dy-CTw" secondAttribute="height" multiplier="1:1" id="eaE-Cd-EjZ"/>
+                                </constraints>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="D2W-po-Sjh">
+                                <rect key="frame" x="136" y="555" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onPercentage:" destination="BYZ-38-t0r" eventType="valueChanged" id="LoT-qe-ANa"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="圓環進度條" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C14-Q1-Sfs">
+                                <rect key="frame" x="119" y="118" width="152" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qq-5d-Zfp">
+                                <rect key="frame" x="119" y="630" width="152" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="動畫"/>
+                                <connections>
+                                    <action selector="onAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yGX-yR-d6k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4f-Rx-RLz">
+                                <rect key="frame" x="97" y="723" width="197" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="甜甜圈圖表"/>
+                                <connections>
+                                    <segue destination="wyi-Kc-xrB" kind="show" id="F4f-uB-vnS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MjA-qO-bs7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OCb-Ao-BAN"/>
+                            <constraint firstItem="MjA-qO-bs7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kfj-W8-Dsj"/>
+                            <constraint firstItem="drD-Dy-CTw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nF9-zl-Pdd"/>
+                            <constraint firstItem="drD-Dy-CTw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="roh-Jr-imA"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gXs-MK-uw9"/>
+                    <connections>
+                        <outlet property="progressSlider" destination="D2W-po-Sjh" id="qtK-ST-eRY"/>
+                        <outlet property="progressView" destination="drD-Dy-CTw" id="4Fb-0k-mpN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1064.6153846153845" y="127.96208530805687"/>
+        </scene>
+        <!--Donut Chart View Controller-->
+        <scene sceneID="9vm-Aa-vIf">
+            <objects>
+                <viewController id="wyi-Kc-xrB" customClass="DonutChartViewController" customModule="BezierPathCircle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EeU-hX-PwG">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-Gn-5jV">
+                                <rect key="frame" x="70" y="297" width="250" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="RXm-mT-E1F"/>
+                                    <constraint firstAttribute="width" secondItem="ehO-Gn-5jV" secondAttribute="height" multiplier="1:1" id="ZZj-Rd-xHe"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="甜甜圈圖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITI-xk-QYc">
+                                <rect key="frame" x="134" y="118" width="122" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmJ-9d-4AU">
+                                <rect key="frame" x="108" y="618" width="174" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Random"/>
+                                <connections>
+                                    <action selector="onRandom:" destination="wyi-Kc-xrB" eventType="touchUpInside" id="JU7-91-UOM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUS-lc-GBl">
+                                <rect key="frame" x="108" y="694" width="174" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="圓餅圖"/>
+                                <connections>
+                                    <segue destination="8fv-XE-U4w" kind="show" id="dX3-Q3-iyH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="600-pV-Je0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ehO-Gn-5jV" firstAttribute="centerY" secondItem="EeU-hX-PwG" secondAttribute="centerY" id="CDT-M0-GdH"/>
+                            <constraint firstItem="ehO-Gn-5jV" firstAttribute="centerX" secondItem="EeU-hX-PwG" secondAttribute="centerX" id="ROs-jF-7Kc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sUK-zg-eYQ"/>
+                    <connections>
+                        <outlet property="donutChartView" destination="ehO-Gn-5jV" id="Px7-Ap-WfZ"/>
+                        <outlet property="randomButton" destination="HmJ-9d-4AU" id="Vx9-qv-tMH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OfN-JR-usW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860" y="127.96208530805687"/>
+        </scene>
+        <!--Pie Chart View Controller-->
+        <scene sceneID="BVa-53-qMw">
+            <objects>
+                <viewController id="8fv-XE-U4w" customClass="PieChartViewController" customModule="BezierPathCircle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V8x-HY-j5c">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="圓餅圖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uri-Ge-tZy">
+                                <rect key="frame" x="150" y="112" width="91" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-gC-GLb">
+                                <rect key="frame" x="70" y="297" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Udz-jg-31J"/>
+                                    <constraint firstAttribute="width" secondItem="1Pb-gC-GLb" secondAttribute="height" multiplier="1:1" id="pVe-Qv-Z8V"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="x2g-XJ-qBU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Pb-gC-GLb" firstAttribute="centerY" secondItem="V8x-HY-j5c" secondAttribute="centerY" id="LFK-j2-aRi"/>
+                            <constraint firstItem="1Pb-gC-GLb" firstAttribute="centerX" secondItem="V8x-HY-j5c" secondAttribute="centerX" id="meT-EB-OGk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="W0J-fl-Gdi"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="1Pb-gC-GLb" id="U5B-Nz-fUC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YM8-wd-Bev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2654" y="128"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3iV-ks-kx1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O93-pB-Own" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hQA-Og-GXw">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HEE-Oi-KKN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6UT-FW-mOG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.38461538461539" y="127.96208530805687"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
